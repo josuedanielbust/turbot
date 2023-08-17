@@ -55,7 +55,7 @@ $ npm run dev
 ## Documentación de la base de datos
 - La documentación de la base de datos se encuentra en [dbdiagram.io][#3].
 
-![Diagrama de la base de datos](./docs/dbdiagram.png "Diagrama de la base de datos")
+![Diagrama de la base de datos](../docs/dbdiagram.png "Diagrama de la base de datos")
 
 ## Rutas de la API
 | Método | Ruta | Descripción |
@@ -79,7 +79,7 @@ $ npm run dev
 [#1]: http://localhost:3001
 [#2]: ./back/.env.example
 [#3]: https://dbdiagram.io/d/64ddbb6e02bd1c4a5eead1e2
-[#4]: ./docs/dbdiagram.png
+[#4]: ../docs/dbdiagram.png
 
 
 ## Migrate database
