@@ -5,6 +5,7 @@ const start = async () => {
     await Fastify.listen(
       {
         port: Fastify.config.PORT,
+        host: Fastify.config.HOST,
       },
       (err, address) => {
         if (err) {
