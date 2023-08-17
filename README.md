@@ -41,7 +41,6 @@ $ docker-compose up
     - [Readme - Frontend microservice][#1]
     - [Readme - Backend microservice][#2]
   - En el archivo `./back/.env` se encuentran las variables de entorno para la conexión a la base de datos.
-  - En el archivo `./front/.env` se encuentra la variable de entorno para la conexión al back.
   
 Para probarlo rápidamente ejecutar los siguientes comandos:
 ```sh
