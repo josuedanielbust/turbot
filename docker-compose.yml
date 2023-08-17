@@ -13,6 +13,14 @@ services:
       - 5432:5432
     networks:
       - todo
+    deploy:
+      replicas: 1
+      endpoint_mode: vip
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
 
   back:
     build:
@@ -32,6 +40,14 @@ services:
       - postgres
     networks:
       - todo
+    deploy:
+      replicas: 1
+      endpoint_mode: vip
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
 
   front:
     build:
@@ -49,6 +65,18 @@ services:
       - back
     networks:
       - todo
+    deploy:
+      mode: replicated
+      replicas: 2
+      endpoint_mode: vip
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
 
 networks:
   todo:
