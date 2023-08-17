@@ -13,7 +13,7 @@
     "schema": "src/prisma/schema.prisma"
   },
   "scripts": {
-    "start": "node ./dist/server.js",
+    "start": "node ./src/server.js",
     "dev": "NODE_ENV=development PORT=3001 nodemon ./src/server.js",
     "lint:check": "npx prettier --check \"src/**/*.js\"",
     "lint:format": "npx prettier --write \"src/**/*.js\"",
