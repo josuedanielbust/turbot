@@ -6,6 +6,7 @@
   - [Requerimientos](#requerimientos)
   - [Instalación](#instalación)
     - [Docker](#docker)
+    - [Dockwer Swarm](#dockwer-swarm)
     - [Sin Docker](#sin-docker)
   - [Tecnologías utilizadas](#tecnologías-utilizadas)
 - [Autor](#autor)
@@ -33,6 +34,12 @@
 ```sh
 $ docker-compose build
 $ docker-compose up
+```
+#### Dockwer Swarm
+- Ejecutar los siguientes comandos:
+```sh
+$ docker swarm init
+$ docker stack deploy -c docker-compose.yml turbo-traffic
 ```
 #### Sin Docker
 - Notas:
