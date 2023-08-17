@@ -80,10 +80,3 @@ $ npm run dev
 [#2]: ./back/.env.example
 [#3]: https://dbdiagram.io/d/64ddbb6e02bd1c4a5eead1e2
 [#4]: ../docs/dbdiagram.png
-
-
-## Migrate database
-``` shell
-yarn run db:gen
-yarn run db:mig
-```
