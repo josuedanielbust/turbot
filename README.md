@@ -38,6 +38,7 @@ $ docker-compose up
 #### Dockwer Swarm
 - Ejecutar los siguientes comandos:
 ```sh
+$ docker swarm inits
 $ docker service create --name registry --publish published=5000,target=5000 registry:2
 $ docker compose push
 $ docker swarm init

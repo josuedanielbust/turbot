@@ -11,8 +11,6 @@ services:
       - postgres-db:/var/lib/postgresql/data
     ports:
       - 5432:5432
-    networks:
-      - todo
     deploy:
       replicas: 1
       endpoint_mode: vip
@@ -30,6 +28,7 @@ services:
         PG_USER: todo
         PG_PASS: todo
         PG_HOST: postgres
+    image: localhost:5000/back
     container_name: todo-back
     restart: unless-stopped
     hostname: back
@@ -38,8 +37,6 @@ services:
       - 3001:3001
     depends_on:
       - postgres
-    networks:
-      - todo
     deploy:
       replicas: 1
       endpoint_mode: vip
@@ -55,6 +52,7 @@ services:
       dockerfile: Dockerfile
       args:
         BACKEND: http://back:3001
+    image: localhost:5000/front
     container_name: todo-front
     restart: unless-stopped
     working_dir: /var/www
@@ -63,8 +61,6 @@ services:
     depends_on:
       - postgres
       - back
-    networks:
-      - todo
     deploy:
       mode: replicated
       replicas: 2
@@ -77,10 +73,6 @@ services:
         delay: 5s
         max_attempts: 3
         window: 120s
-
-networks:
-  todo:
-    driver: bridge
 
 volumes:
   postgres-db:
