@@ -6,7 +6,7 @@
   - [Requerimientos](#requerimientos)
   - [Instalación](#instalación)
     - [Docker](#docker)
-    - [Docker Swarm](#dockwer-swarm)
+    - [Docker Swarm](#docker-swarm)
     - [Sin Docker](#sin-docker)
   - [Tecnologías utilizadas](#tecnologías-utilizadas)
 - [Autor](#autor)
