@@ -6,7 +6,8 @@
   - [Requerimientos](#requerimientos)
   - [Instalación](#instalación)
     - [Docker](#docker)
-    - [Dockwer Swarm](#dockwer-swarm)
+    - [Docker Swarm](#docker-swarm)
+    - [Kubernetes](#kubernetes-k8s)
     - [Sin Docker](#sin-docker)
   - [Tecnologías utilizadas](#tecnologías-utilizadas)
 - [Autor](#autor)
@@ -43,6 +44,20 @@ $ docker compose push
 $ docker swarm init
 $ docker stack deploy -c docker-compose.yml turbo-traffic
 ```
+#### Kubernetes (K8s)
+- Notas:
+  - Es necesario contar con un cluster de Kubernetes, en este caso se usa [`Minicube`][#5]
+  - Es necesario contar con un registro de contenedores. Con [`Minicube`][#5] se puede crear uno siguiendo los pasos que se encuentran en la [`documentación de Minicube`][#6]
+- Ejecutar los siguientes comandos:
+```sh
+$ docker compose build
+$ docker push localhost:5000/back
+$ docker push localhost:5000/front
+$ kubectl apply -f postgres-persistentvolume.yaml,postgres-persistentvolumeclaim.yaml,postgres-configmap.yaml,postgres-deployment.yaml,postgres-service.yaml
+$ kubectl apply -f back-deployment.yaml,back-service.yaml
+$ kubectl apply -f front-deployment.yaml,front-service.yaml
+$ kubectl port-forward service/front 3000:3000
+```
 #### Sin Docker
 - Notas:
   - Es necesario tener instalado PostgreSQL y Node.js en tu computadora.
@@ -76,3 +91,5 @@ $ cd ./front && npm install && npm run dev
 [#2]: ./back/README.md
 [#3]: http://localhost:3000
 [#4]: http://localhost:3001
+[#5]: https://minikube.sigs.k8s.io/docs/
+[#6]: https://minikube.sigs.k8s.io/docs/handbook/registry/

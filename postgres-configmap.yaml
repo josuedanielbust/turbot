@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-secret-creds
+  labels:
+    app: todo
+data:
+  POSTGRES_DB: todo
+  POSTGRES_USER: todo
+  POSTGRES_PASSWORD: todo
