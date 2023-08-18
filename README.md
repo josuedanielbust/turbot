@@ -6,7 +6,7 @@
   - [Requerimientos](#requerimientos)
   - [Instalación](#instalación)
     - [Docker](#docker)
-    - [Dockwer Swarm](#dockwer-swarm)
+    - [Docker Swarm](#dockwer-swarm)
     - [Sin Docker](#sin-docker)
   - [Tecnologías utilizadas](#tecnologías-utilizadas)
 - [Autor](#autor)
@@ -35,13 +35,13 @@
 $ docker-compose build
 $ docker-compose up
 ```
-#### Dockwer Swarm
+#### Docker Swarm
 - Ejecutar los siguientes comandos:
 ```sh
-$ docker swarm inits
-$ docker service create --name registry --publish published=5000,target=5000 registry:2
-$ docker compose push
 $ docker swarm init
+$ docker service create --name registry --publish published=5000,target=5000 registry:2
+$ docker compose build
+$ docker compose push
 $ docker stack deploy -c docker-compose.yml turbo-traffic
 ```
 #### Sin Docker
