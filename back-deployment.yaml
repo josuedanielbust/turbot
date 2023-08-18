@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: back
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: back
+  template:
+    metadata:
+      labels:
+        app: back
+    spec:
+      containers:
+        - name: back
+          image: localhost:5000/back
+          ports:
+            - containerPort: 3001
+          workingDir: /var/www
+      hostname: back
+      restartPolicy: Always
