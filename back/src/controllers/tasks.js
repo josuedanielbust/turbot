@@ -5,9 +5,9 @@ const Tasks = {
 }
 
 Tasks.routes = async (Fastify) => {
-  Fastify.get('/tasks/', Tasks.service.getTasks)
+  Fastify.get('/tasks', Tasks.service.getTasks)
   Fastify.get('/tasks/:id', Tasks.service.getTask)
-  Fastify.post('/tasks/', Tasks.service.createTask)
+  Fastify.post('/tasks', Tasks.service.createTask)
   Fastify.patch('/tasks/:id', Tasks.service.updateTask)
   Fastify.delete('/tasks/:id', Tasks.service.deleteTask)
 }

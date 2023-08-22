@@ -6,7 +6,7 @@ class TasksService {
   }
 
   static getTasks = async () => {
-    const result = await axios.get(`${BACKEND}/tasks/`)
+    const result = await axios.get(`${BACKEND}/tasks`)
     .then(res => {
       if (res.status === 200) {
         return res.data
@@ -30,10 +30,10 @@ class TasksService {
   }
 
   static createTask = async (title) => {
-    const result = await axios.post(`${BACKEND}/tasks/`, {
+    const result = await axios.post(`${BACKEND}/tasks`, {
       title,
     }).then(res => {
-      if (res.status === 200) {
+      if (res.status === 200 || res.status === 201) {
         return res.data
       }
     }).catch(err => {
