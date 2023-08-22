@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nest
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nest
+  template:
+    metadata:
+      labels:
+        app: nest
+    spec:
+      containers:
+        - name: nest
+          image: localhost:5000/nest
+          ports:
+            - containerPort: 3001
+          workingDir: /var/www
+      hostname: back
+      restartPolicy: Always

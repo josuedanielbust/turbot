@@ -74,5 +74,31 @@ services:
         max_attempts: 3
         window: 120s
 
+  nest:
+    build:
+      context: ./nest/
+      dockerfile: Dockerfile
+      args:
+        PG_USER: todo
+        PG_PASS: todo
+        PG_HOST: postgres
+    image: localhost:5000/nest
+    container_name: todo-nest
+    restart: unless-stopped
+    hostname: back
+    working_dir: /var/www
+    ports:
+      - 3001:3001
+    depends_on:
+      - postgres
+    deploy:
+      replicas: 1
+      endpoint_mode: vip
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
 volumes:
   postgres-db:
